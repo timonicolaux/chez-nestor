@@ -26,34 +26,44 @@ function App() {
   return (
     <>
       <AppContext>
-        <div className="font-roboto mt-20">
-          <NewAppartment
-            appartmentInfo={appartmentInfo}
-            setAppartmentInfo={setAppartmentInfo}
-          />
-          {appartmentInfo
-            .sort((a, b) => {
-              const title1 = a.title.toUpperCase();
-              const title2 = b.title.toUpperCase();
-              if (title1 > title2) {
-                return 1;
-              }
-              if (title1 < title2) {
-                return -1;
-              }
-              return 0;
-            })
-            .map((elt, index) => (
-              <Appartment
-                appartmentInfoIndex={appartmentInfo[index]}
-                // MAPPED ELEMENT APPARTMENT INFO
-                appartmentInfo={appartmentInfo}
-                // ALL APPARTMENT INFO
-                setAppartmentInfo={setAppartmentInfo}
-                appartmentIndex={index}
-              />
-            ))}
-        </div>
+        <header>
+          <div className="flex justify-center bg-[#1e2c48]">
+            <img
+              src="https://blog.chez-nestor.com/wp-content/uploads/2021/08/chez-nestor-logo.png"
+              alt="Chez Nestor Logo"
+            />
+          </div>
+        </header>
+        <main>
+          <div className="font-roboto mt-20">
+            <NewAppartment
+              appartmentInfo={appartmentInfo}
+              setAppartmentInfo={setAppartmentInfo}
+            />
+            {appartmentInfo
+              .sort((a, b) => {
+                const title1 = a.title.toUpperCase();
+                const title2 = b.title.toUpperCase();
+                if (title1 > title2) {
+                  return 1;
+                }
+                if (title1 < title2) {
+                  return -1;
+                }
+                return 0;
+              })
+              .map((elt, index) => (
+                <Appartment
+                  appartmentInfoIndex={appartmentInfo[index]}
+                  // MAPPED ELEMENT APPARTMENT INFO
+                  appartmentInfo={appartmentInfo}
+                  // ALL APPARTMENT INFO
+                  setAppartmentInfo={setAppartmentInfo}
+                  appartmentIndex={index}
+                />
+              ))}
+          </div>
+        </main>
       </AppContext>
     </>
   );
