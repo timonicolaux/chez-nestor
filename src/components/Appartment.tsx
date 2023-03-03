@@ -5,14 +5,15 @@ import { AppartmentInfo } from "../types/types";
 const Appartment = ({
   appartmentInfo,
   setAppartmentInfo,
+  appartmentIndex,
 }: {
-  appartmentInfo: AppartmentInfo[];
+  appartmentInfo: AppartmentInfo;
   setAppartmentInfo: Dispatch<SetStateAction<AppartmentInfo[]>>;
+  appartmentIndex: number;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [description, setDescription] = useState<string>("");
-  const bgimage =
-    "https://static.pic.chez-nestor.com/apartments/9fc996ef-e0ba-4bcf-b911-7ea35be93782/large.webp";
+
   return (
     <>
       <div
@@ -24,26 +25,21 @@ const Appartment = ({
       >
         <div
           className="bg-cover bg-no-repeat bg-center w-[350px] m-4 rounded-lg shadow-sm"
-          style={{ backgroundImage: `url(${bgimage})` }}
+          style={{ backgroundImage: `url(${appartmentInfo.url})` }}
         />
         <div className="flex-1 m-4 mr-6 text-gray-800">
           <h1 className="text-2xl font-bold mt-2 mb-2">
-            73 Quivogne 1 - Chambre 1
+            {appartmentInfo.title}
           </h1>
           <div className="flex items-center mb-2">
             <IoLocationSharp className="mr-2" color="orange" />
-            <h3>73 Rue Quivogne, 69002 Lyon</h3>
+            <h3>{appartmentInfo.address}</h3>
           </div>
           <h2 className="text-2xl font-bold mb-6">
-            710€<span className="text-lg font-normal">/mois</span>
+            {appartmentInfo.price}€
+            <span className="text-lg font-normal">/mois</span>
           </h2>
-          <p className="text-justify">
-            “Cette superbe chambre en colocation, meublée, équipée et tout
-            inclus à Lyon unit confort et design. Elle offre de nombreux
-            équipements comme un lit confortable et hypoallergénique avec
-            couette et oreillers. Ne vous manque plus à apporter que vos
-            vêtements pour y vivre ! La chambre possède un cadenas si besoin.“
-          </p>
+          <p className="text-justify">“{appartmentInfo.description}“</p>
           <div className="flex justify-end">
             <button
               className="bg-orange-500 hover:bg-orange-600 text-white font-bold m-2 py-2 px-4 rounded"
@@ -92,7 +88,7 @@ const Appartment = ({
             </label>
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
-              type="text"
+              type="number"
             />
           </div>
           <div className="mb-6 mx-auto my-4">

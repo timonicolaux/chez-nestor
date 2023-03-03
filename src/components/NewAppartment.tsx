@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useContext, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { AppartmentInfo } from "../types/types";
 
 const NewAppartment = ({
@@ -18,10 +19,15 @@ const NewAppartment = ({
     url: "",
   });
 
-  const addAppartment = () => {};
+  const addAppartment = () => {
+    setAppartmentInfo([...appartmentInfo, formState]);
+    setIsOpen(false);
+    toast.success("Appartement ajouté");
+  };
 
   return (
     <>
+      <Toaster position="top-center" />
       <div
         className={
           !isOpen
@@ -76,7 +82,7 @@ const NewAppartment = ({
             </label>
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
-              type="text"
+              type="number"
             />
           </div>
           <div className="mb-6 mx-auto my-4">
@@ -106,7 +112,10 @@ const NewAppartment = ({
               type="text"
             />
           </div>
-          <button className="bg-green-500 hover:bg-green-600 text-white mx-auto font-bold m-2 py-2 px-4 rounded mt-4 w-40">
+          <button
+            className="bg-green-500 hover:bg-green-600 text-white mx-auto font-bold m-2 py-2 px-4 rounded mt-4 w-40"
+            onClick={() => addAppartment()}
+          >
             Valider
           </button>
         </div>
