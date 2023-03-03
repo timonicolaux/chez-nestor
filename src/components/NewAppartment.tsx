@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useContext, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AppartmentInfo } from "../types/types";
 
@@ -10,7 +10,6 @@ const NewAppartment = ({
   setAppartmentInfo: Dispatch<SetStateAction<AppartmentInfo[]>>;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [description, setDescription] = useState<string>("");
   const [formState, setFormState] = useState<AppartmentInfo>({
     title: "",
     address: "",
@@ -20,9 +19,28 @@ const NewAppartment = ({
   });
 
   const addAppartment = () => {
-    setAppartmentInfo([...appartmentInfo, formState]);
+    if (formState.url.length === 0) {
+      const noImageFormState = {
+        ...formState,
+        url: "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg",
+      };
+      setAppartmentInfo([...appartmentInfo, noImageFormState]);
+    } else {
+      setAppartmentInfo([...appartmentInfo, formState]);
+    }
     setIsOpen(false);
     toast.success("Appartement ajouté");
+    setFormState({
+      title: "",
+      address: "",
+      price: null,
+      description: "",
+      url: "",
+    });
+  };
+
+  const handleChange = (key: string, value: any) => {
+    setFormState({ ...formState, [key]: value });
   };
 
   return (
@@ -59,6 +77,8 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              value={formState.title}
+              onChange={(e) => handleChange("title", e.target.value)}
             />
           </div>
           <div className="mb-6 mx-auto my-4">
@@ -71,6 +91,8 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              value={formState.address}
+              onChange={(e) => handleChange("address", e.target.value)}
             />
           </div>
           <div className="mb-6 mx-auto my-4">
@@ -83,6 +105,8 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="number"
+              value={formState.price || undefined}
+              onChange={(e) => handleChange("price", e.target.value)}
             />
           </div>
           <div className="mb-6 mx-auto my-4">
@@ -95,10 +119,10 @@ const NewAppartment = ({
             <textarea
               maxLength={320}
               className="w-[700px] resize-none h-40 shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={formState.description}
+              onChange={(e) => handleChange("description", e.target.value)}
             />
-            <h3>{320 - description.length} caractères restants</h3>
+            <h3>{320 - formState.description.length} caractères restants</h3>
           </div>
           <div className="mb-6 mx-auto my-4">
             <label
@@ -110,6 +134,8 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              value={formState.url}
+              onChange={(e) => handleChange("url", e.target.value)}
             />
           </div>
           <button

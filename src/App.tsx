@@ -31,7 +31,8 @@ function App() {
         />
         {appartmentInfo.map((elt, index) => (
           <Appartment
-            appartmentInfo={appartmentInfo[index]}
+            appartmentInfoIndex={appartmentInfo[index]}
+            appartmentInfo={appartmentInfo}
             setAppartmentInfo={setAppartmentInfo}
             appartmentIndex={index}
           />
