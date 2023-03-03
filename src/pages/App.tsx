@@ -27,7 +27,7 @@ function App() {
     <>
       <AppContext>
         <header>
-          <div className="w-full flex justify-center bg-[#1e2c48]">
+          <div className="w-full min-w-[800px] flex justify-center bg-[#1e2c48]">
             <img
               src="https://blog.chez-nestor.com/wp-content/uploads/2021/08/chez-nestor-logo.png"
               alt="Chez Nestor Logo"
