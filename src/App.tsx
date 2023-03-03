@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Appartment from "./components/Appartment";
 import NewAppartment from "./components/NewAppartment";
+import AppContext from "./context/AppContext";
 import { AppartmentInfo } from "./types/types";
 
 function App() {
@@ -23,22 +24,24 @@ function App() {
     },
   ]);
   return (
-    <div>
-      <div className="font-roboto mt-10">
-        <NewAppartment
-          appartmentInfo={appartmentInfo}
-          setAppartmentInfo={setAppartmentInfo}
-        />
-        {appartmentInfo.map((elt, index) => (
-          <Appartment
-            appartmentInfoIndex={appartmentInfo[index]}
+    <>
+      <AppContext>
+        <div className="font-roboto mt-20">
+          <NewAppartment
             appartmentInfo={appartmentInfo}
             setAppartmentInfo={setAppartmentInfo}
-            appartmentIndex={index}
           />
-        ))}
-      </div>
-    </div>
+          {appartmentInfo.map((elt, index) => (
+            <Appartment
+              appartmentInfoIndex={appartmentInfo[index]}
+              appartmentInfo={appartmentInfo}
+              setAppartmentInfo={setAppartmentInfo}
+              appartmentIndex={index}
+            />
+          ))}
+        </div>
+      </AppContext>
+    </>
   );
 }
 

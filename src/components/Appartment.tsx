@@ -40,6 +40,13 @@ const Appartment = ({
     toast.success("Appartement modifié");
   };
 
+  const removeAppartment = () => {
+    const updatedData = appartmentInfo.filter(
+      (elt) => elt !== appartmentInfoIndex
+    );
+    setAppartmentInfo(updatedData);
+  };
+
   const handleChange = (key: string, value: any) => {
     setFormState({ ...formState, [key]: value });
   };
@@ -78,7 +85,10 @@ const Appartment = ({
             >
               Modifier
             </button>
-            <button className="bg-red-500 hover:bg-red-600 text-white font-bold m-2 py-2 px-4 rounded">
+            <button
+              className="bg-red-500 hover:bg-red-600 text-white font-bold m-2 py-2 px-4 rounded"
+              onClick={() => removeAppartment()}
+            >
               Supprimer
             </button>
           </div>
