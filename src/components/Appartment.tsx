@@ -136,7 +136,7 @@ const Appartment = ({
               className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
               htmlFor="grid-last-name"
             >
-              Prix
+              Prix (€/mois)
             </label>
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
