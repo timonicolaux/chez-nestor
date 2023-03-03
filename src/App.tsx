@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Appartment from "./components/Appartment";
+import NewAppartment from "./components/NewAppartment";
 import { AppartmentInfo } from "./types/types";
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
   return (
     <div>
       <div className="font-roboto mt-10">
+        <NewAppartment
+          appartmentInfo={appartmentInfo}
+          setAppartmentInfo={setAppartmentInfo}
+        />
         <Appartment
           appartmentInfo={appartmentInfo}
           setAppartmentInfo={setAppartmentInfo}
