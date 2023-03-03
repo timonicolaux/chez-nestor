@@ -35,7 +35,7 @@ function App() {
           </div>
         </header>
         <main>
-          <div className="font-roboto mt-20">
+          <div className="font-roboto mt-20 mb-60">
             <NewAppartment
               appartmentInfo={appartmentInfo}
               setAppartmentInfo={setAppartmentInfo}
