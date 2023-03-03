@@ -77,6 +77,7 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={100}
               value={formState.title}
               onChange={(e) => handleChange("title", e.target.value)}
             />
@@ -91,6 +92,7 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={100}
               value={formState.address}
               onChange={(e) => handleChange("address", e.target.value)}
             />
@@ -134,6 +136,7 @@ const NewAppartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={300}
               value={formState.url}
               onChange={(e) => handleChange("url", e.target.value)}
             />

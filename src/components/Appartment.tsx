@@ -65,7 +65,7 @@ const Appartment = ({
           className="bg-cover bg-no-repeat bg-center w-[350px] m-4 rounded-lg shadow-sm"
           style={{ backgroundImage: `url(${appartmentInfoIndex.url})` }}
         />
-        <div className="flex-1 m-4 mr-6 text-gray-800">
+        <div className="flex-1 m-4 mr-6 text-gray-800 relative">
           <h1 className="text-2xl font-bold mt-2 mb-2">
             {appartmentInfoIndex.title}
           </h1>
@@ -73,20 +73,20 @@ const Appartment = ({
             <IoLocationSharp className="mr-2" color="orange" />
             <h3>{appartmentInfoIndex.address}</h3>
           </div>
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="text-2xl font-bold mb-5">
             {appartmentInfoIndex.price}€
             <span className="text-lg font-normal">/mois</span>
           </h2>
           <p className="text-justify">“{appartmentInfoIndex.description}“</p>
-          <div className="flex justify-end">
+          <div className="absolute bottom-0 right-0">
             <button
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold m-2 py-2 px-4 rounded"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold mt-2 mx-2 py-2 px-4 rounded"
               onClick={() => setIsOpen(!isOpen)}
             >
               Modifier
             </button>
             <button
-              className="bg-red-500 hover:bg-red-600 text-white font-bold m-2 py-2 px-4 rounded"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
               onClick={() => removeAppartment()}
             >
               Supprimer
@@ -106,6 +106,7 @@ const Appartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={100}
               value={formState.title}
               onChange={(e) => handleChange("title", e.target.value)}
             />
@@ -120,6 +121,7 @@ const Appartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={100}
               value={formState.address}
               onChange={(e) => handleChange("address", e.target.value)}
             />
@@ -163,6 +165,7 @@ const Appartment = ({
             <input
               className="w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
               type="text"
+              maxLength={300}
               value={formState.url}
               onChange={(e) => handleChange("url", e.target.value)}
             />

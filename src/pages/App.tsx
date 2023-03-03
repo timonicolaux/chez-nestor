@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Appartment from "./components/Appartment";
-import NewAppartment from "./components/NewAppartment";
-import AppContext from "./context/AppContext";
-import { AppartmentInfo } from "./types/types";
+import Appartment from "../components/Appartment";
+import NewAppartment from "../components/NewAppartment";
+import AppContext from "../context/AppContext";
+import { AppartmentInfo } from "../types/types";
 
 function App() {
   const [appartmentInfo, setAppartmentInfo] = useState<AppartmentInfo[]>([
