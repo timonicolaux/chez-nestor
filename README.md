@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Chez Nestor - Test Technique
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Cette Application permet de visualiser une liste d'appartements, qui comprennent chacun :
 
-In the project directory, you can run:
+- une image
+- un nom
+- une adresse
+- un prix
+- une description
 
-### `npm start`
+## Mode d'emploi
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Via l'onglet "Ajouter un appartement", en pressant le bouton "+", il est possible d'ajouter un nouvel appartement à la liste via l'apparition d'un formulaire.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Il est également possible de modifier les informations d'un appartement en pressant le bouton "Modifier", il suffira de compléter les informations du formulaire qui apparaitra également.
 
-### `npm test`
+Enfin, il est possible de supprimer un appartement de la liste en pressant le bouton "Supprimer".
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Informations supplémentaires
 
-### `npm run build`
+Cette application ne fait pas appel à une base de données et n'utilise pas le localstorage du navigateur, toutes les changements effectués sur la page disparaissent à l'actualisation de la page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Visualisation du rendu
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Voici le lien du déploiement : https://chez-nestor.vercel.app/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Voici les instructions pour lancer l'application en local :
 
-### `npm run eject`
+- git clone https://github.com/timonicolaux/chez-nestor.git
+- git checkout dev
+- git pull origin
+- npm i
+- npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Je n'ai malheuresement pas réussi à utiliser le Context pour gérer l'état de l'application, j'ai eu un message d'erreur Typescript que je n'ai pas réussi à résoudre :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![Capture d'écran de l'erreur](https://zupimages.net/up/23/09/6ndz.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
