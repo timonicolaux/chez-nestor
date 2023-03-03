@@ -31,14 +31,26 @@ function App() {
             appartmentInfo={appartmentInfo}
             setAppartmentInfo={setAppartmentInfo}
           />
-          {appartmentInfo.map((elt, index) => (
-            <Appartment
-              appartmentInfoIndex={appartmentInfo[index]}
-              appartmentInfo={appartmentInfo}
-              setAppartmentInfo={setAppartmentInfo}
-              appartmentIndex={index}
-            />
-          ))}
+          {appartmentInfo
+            .sort((a, b) => {
+              const title1 = a.title.toUpperCase();
+              const title2 = b.title.toUpperCase();
+              if (title1 > title2) {
+                return 1;
+              }
+              if (title1 < title2) {
+                return -1;
+              }
+              return 0;
+            })
+            .map((elt, index) => (
+              <Appartment
+                appartmentInfoIndex={appartmentInfo[index]}
+                appartmentInfo={appartmentInfo}
+                setAppartmentInfo={setAppartmentInfo}
+                appartmentIndex={index}
+              />
+            ))}
         </div>
       </AppContext>
     </>

@@ -57,7 +57,7 @@ const Appartment = ({
       <div
         className={
           !isOpen
-            ? "flex justify-center bg-white mx-auto h-96 rounded-lg w-[800px] shadow-xl mt-10"
+            ? "flex justify-center bg-white mx-auto h-96 rounded-lg w-[800px] shadow-xl my-10"
             : "flex justify-center bg-white mx-auto h-96 w-[800px] shadow-xl mt-10 rounded-t-lg"
         }
       >

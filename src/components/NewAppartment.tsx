@@ -53,9 +53,9 @@ const NewAppartment = ({
             : "flex bg-white mx-auto h-16 rounded-t-lg w-[800px] shadow-xl"
         }
       >
-        <div className="relative left-4 top-1/2 transform -translate-y-1/3 w-[80px]">
+        <div className=" relative left-4 top-1/2 transform -translate-y-1/3 w-[80px]">
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-3xl w-10 h-10 rounded-full"
+            className="bg-blue-500 flex justify-center hover:bg-blue-600 text-white font-bold text-3xl w-10 h-10 rounded-full"
             onClick={() => setIsOpen(!isOpen)}
           >
             {!isOpen ? "+" : "-"}
