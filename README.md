@@ -37,6 +37,6 @@ npm start
 
 Je n'ai malheuresement pas réussi à utiliser le Context pour gérer l'état de l'application, j'ai eu un message d'erreur Typescript que je n'ai pas réussi à résoudre :
 
-![This is an image](https://zupimages.net/viewer.php?id=23/09/6ndz.png)
+![This is an image](https://zupimages.net/viewer.php?id=23/09/6ndz.png](https://zupimages.net/up/23/09/6ndz.png)
 
 
