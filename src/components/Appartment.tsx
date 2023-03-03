@@ -1,7 +1,8 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useContext, useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
-import { AppartmentInfo } from "../types/types";
+import { AppartmentInfo, AppContextTypes } from "../types/types";
 import toast, { Toaster } from "react-hot-toast";
+import AppContext from "../context/AppContext";
 
 const Appartment = ({
   appartmentInfoIndex,
@@ -14,6 +15,7 @@ const Appartment = ({
   setAppartmentInfo: Dispatch<SetStateAction<AppartmentInfo[]>>;
   appartmentIndex: number;
 }) => {
+  // const { isOpen, setIsOpen } = useContext(AppContext) as AppContextTypes;
   const [isOpen, setIsOpen] = useState(false);
   const [formState, setFormState] = useState<AppartmentInfo>({
     title: appartmentInfoIndex.title,
@@ -94,6 +96,9 @@ const Appartment = ({
           </div>
         </div>
       </div>
+
+      {/* APPARTMENT FORM */}
+
       {isOpen && (
         <div className="flex flex-col bg-white mx-auto rounded-b-lg w-[800px] h-[850px] shadow-xl transform transition-transform duration-500">
           <div className="mb-6 mx-auto my-4">

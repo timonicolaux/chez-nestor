@@ -7,7 +7,7 @@ import { AppartmentInfo } from "../types/types";
 function App() {
   const [appartmentInfo, setAppartmentInfo] = useState<AppartmentInfo[]>([
     {
-      title: "73 Quivogne 1 - Chambre 1",
+      title: "Quivogne 1 - Chambre 1",
       address: "73 Rue Quivogne, 69002 Lyon",
       price: 710,
       description:
@@ -15,7 +15,7 @@ function App() {
       url: "https://static.pic.chez-nestor.com/apartments/9fc996ef-e0ba-4bcf-b911-7ea35be93782/large.webp",
     },
     {
-      title: "4 Jayet - Chambre 1",
+      title: "Jayet - Chambre 1",
       address: "4 Rue Etienne Jayet, 69007 Lyon",
       price: 700,
       description:
@@ -46,7 +46,9 @@ function App() {
             .map((elt, index) => (
               <Appartment
                 appartmentInfoIndex={appartmentInfo[index]}
+                // MAPPED ELEMENT APPARTMENT INFO
                 appartmentInfo={appartmentInfo}
+                // ALL APPARTMENT INFO
                 setAppartmentInfo={setAppartmentInfo}
                 appartmentIndex={index}
               />

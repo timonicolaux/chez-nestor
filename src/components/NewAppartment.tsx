@@ -65,6 +65,9 @@ const NewAppartment = ({
           Ajouter un appartement
         </h1>
       </div>
+
+      {/* APPARTMENT FORM */}
+
       {isOpen && (
         <div className="flex flex-col bg-white mx-auto rounded-b-lg w-[800px] h-[850px] shadow-xl transform transition-transform duration-500">
           <div className="mb-6 mx-auto my-4">
