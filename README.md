@@ -35,8 +35,3 @@ Voici les instructions pour lancer l'application en local :
 - npm start
 
 
-Je n'ai malheuresement pas réussi à utiliser le Context pour gérer l'état de l'application, j'ai eu un message d'erreur Typescript que je n'ai pas réussi à résoudre :
-
-![Capture d'écran de l'erreur](https://zupimages.net/up/23/09/6ndz.png)
-
-
