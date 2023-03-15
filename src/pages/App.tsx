@@ -3,11 +3,12 @@ import Appartment from "../components/Appartment";
 import NewAppartment from "../components/NewAppartment";
 import AppContext from "../context/AppContext";
 import { AppartmentInfo } from "../types/types";
+import Logo from "../assets/monappartment.jpeg";
 
 function App() {
   const [appartmentInfo, setAppartmentInfo] = useState<AppartmentInfo[]>([
     {
-      title: "Quivogne 1 - Chambre 1",
+      title: "Quivogne - Chambre 1",
       address: "73 Rue Quivogne, 69002 Lyon",
       price: 710,
       description:
@@ -27,11 +28,8 @@ function App() {
     <>
       <AppContext>
         <header>
-          <div className="w-full min-w-[800px] flex justify-center bg-[#1e2c48]">
-            <img
-              src="https://blog.chez-nestor.com/wp-content/uploads/2021/08/chez-nestor-logo.png"
-              alt="Chez Nestor Logo"
-            />
+          <div className="w-full flex justify-center bg-[#1e2c48]">
+            <img src={Logo} alt="Logo" width={300} />
           </div>
         </header>
         <main>
