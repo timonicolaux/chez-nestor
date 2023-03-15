@@ -1,5 +1,3 @@
-# Chez Nestor - Test Technique
-
 ## Description
 
 Cette Application permet de visualiser une liste d'appartements, qui comprennent chacun :
