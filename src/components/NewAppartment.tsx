@@ -54,15 +54,15 @@ const NewAppartment = ({
               : "flex bg-white mx-auto h-16 rounded-t-lg max-w-[800px] w-full shadow-xl"
           }
         >
-          <div className=" relative left-4 top-1/2 transform -translate-y-1/3 w-[80px]">
+          <div className="relative left-4 top-1/2 transform -translate-y-1/2 w-[80px] flex items-center">
             <button
-              className="bg-blue-500 flex justify-center hover:bg-blue-600 text-white font-bold text-3xl w-10 h-10 rounded-full"
+              className="bg-blue-500 flex justify-center p-auto hover:bg-blue-600 text-white font-bold text-3xl w-10 h-10 rounded-full"
               onClick={() => setIsOpen(!isOpen)}
             >
               {!isOpen ? "+" : "-"}
             </button>
           </div>
-          <h1 className="my-auto text-2xl text-left font-normal">
+          <h1 className="my-auto text-xl md:text-2xl text-left font-medium mx-4 text-black">
             Ajouter un appartement
           </h1>
         </div>
