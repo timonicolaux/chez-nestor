@@ -65,7 +65,7 @@ const Appartment = ({
           }
         >
           <div
-            className="bg-cover bg-no-repeat bg-center w-[320px] md:w-[350px] my-8 md:mx-4 mx-auto rounded-lg shadow-sm h-[500px] md:h-[350px]"
+            className="bg-cover bg-no-repeat bg-center w-[300px] md:w-[350px] my-8 md:mx-4 mx-auto rounded-lg shadow-sm h-[400px] md:h-[350px]"
             style={{ backgroundImage: `url(${appartmentInfoIndex.url})` }}
           />
           <div className="flex-1 m-4 mr-6 text-gray-800 relative">
