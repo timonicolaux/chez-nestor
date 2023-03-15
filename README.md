@@ -22,11 +22,11 @@ Cette application ne fait pas appel à une base de données et n'utilise pas le 
 
 ## Visualisation du rendu
 
-Voici le lien du déploiement : https://chez-nestor.vercel.app/
+Voici le lien du déploiement : https://mon-appartement.vercel.app/
 
 Voici les instructions pour lancer l'application en local :
 
-- git clone https://github.com/timonicolaux/chez-nestor.git
+- git clone https://github.com/timonicolaux/mon-appartement.git
 - git checkout dev
 - git pull origin
 - npm i
