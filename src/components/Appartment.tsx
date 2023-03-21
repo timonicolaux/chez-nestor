@@ -54,14 +54,33 @@ const Appartment = ({
   };
 
   return (
-    <>
+    <div
+      className={`${
+        isOpen ? "h-[1950px] md:h-[1410px]" : "h-[1100px] md:h-[450px]"
+      }`}
+      style={
+        isOpen
+          ? { transition: "height 0.4s ease-in-out" }
+          : { transition: "height 0.4s ease-in-out" }
+      }
+    >
       <Toaster position="top-center" />
       <div className="flex mx-4">
         <div
-          className={
-            !isOpen
-              ? "flex w-full flex-col justify-center bg-white mx-auto h-[1000px] md:h-[400px] rounded-lg  shadow-xl my-10 md:flex-row md:w-[800px]"
-              : "flex flex-col h-[1000px] justify-center bg-white mx-auto md:h-[400px] w-full shadow-xl mt-10 rounded-t-lg md:flex-row md:w-[800px]"
+          className={`flex w-full flex-col justify-center bg-white mx-auto h-[1000px] md:h-[400px] rounded-lg shadow-xl mt-10 md:flex-row md:w-[800px] ${
+            isOpen ? "rounded-lg" : "rounded-t-lg"
+          }`}
+          style={
+            isOpen
+              ? {
+                  borderBottomRightRadius: "0",
+                  borderBottomLeftRadius: "0",
+                  transition: "border-radius",
+                }
+              : {
+                  borderRadius: "0.5rem",
+                  transition: "border-radius 1s ease-in-out",
+                }
           }
         >
           <div
@@ -101,9 +120,28 @@ const Appartment = ({
 
       {/* APPARTMENT FORM */}
 
-      {isOpen && (
-        <div className="flex mx-4">
-          <div className="flex flex-col justify-center mx-auto bg-white rounded-b-lg max-w-[800px] w-full h-[850px] shadow-xl transform transition-transform duration-500">
+      <div className="flex mx-4 relative">
+        <div
+          className={`flex absolute flex-col left-0 right-0 justify-center mx-auto bg-white rounded-b-lg max-w-[800px] w-full shadow-xl`}
+          style={
+            isOpen
+              ? { height: "860px", transition: "height 0.4s ease-in-out" }
+              : { height: "0px", transition: "height 0.4s ease-in-out" }
+          }
+        >
+          <div
+            className="mb-6 mx-auto my-4 flex flex-col"
+            style={
+              isOpen
+                ? {
+                    opacity: "1",
+                    zIndex: "10",
+                    transition: "opacity 1s",
+                    transitionDelay: "0.2s",
+                  }
+                : { opacity: "0", zIndex: "-1", transition: "opacity 0.2s" }
+            }
+          >
             <div className="mb-6 mx-auto my-4">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
@@ -186,8 +224,8 @@ const Appartment = ({
             </button>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 
