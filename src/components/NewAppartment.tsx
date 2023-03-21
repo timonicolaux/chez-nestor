@@ -1,7 +1,6 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AppartmentInfo } from "../types/types";
-import { Transition } from "@headlessui/react";
 
 const NewAppartment = ({
   appartmentInfo,
@@ -89,9 +88,7 @@ const NewAppartment = ({
 
       <div className="flex mx-4 relative">
         <div
-          className={`flex absolute z-10 flex-col left-0 right-0 bg-white mx-auto rounded-b-lg max-w-[800px] w-full shadow-xl ${
-            isOpen ? "z-10" : "z-0"
-          }`}
+          className={`flex absolute flex-col left-0 right-0 bg-white mx-auto rounded-b-lg max-w-[800px] w-full shadow-xl`}
           style={
             isOpen
               ? { height: "860px", transition: "height 0.4s ease-in-out" }
@@ -102,8 +99,8 @@ const NewAppartment = ({
             className="mb-6 mx-auto my-4 flex flex-col"
             style={
               isOpen
-                ? { opacity: "1", transition: "opacity 1s" }
-                : { opacity: "0", transition: "opacity 0.2s" }
+                ? { opacity: "1", zIndex: "10", transition: "opacity 1s" }
+                : { opacity: "0", zIndex: "0", transition: "opacity 0.2s" }
             }
           >
             <div className="mb-6 mx-auto my-4">
