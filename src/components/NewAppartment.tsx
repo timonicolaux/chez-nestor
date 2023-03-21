@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AppartmentInfo } from "../types/types";
+import { Transition } from "@headlessui/react";
 
 const NewAppartment = ({
   appartmentInfo,
@@ -53,6 +54,18 @@ const NewAppartment = ({
               ? "flex bg-white mx-auto h-16 rounded-lg max-w-[800px] w-full shadow-xl"
               : "flex bg-white mx-auto h-16 rounded-t-lg max-w-[800px] w-full shadow-xl"
           }
+          style={
+            isOpen
+              ? {
+                  borderBottomRightRadius: "0",
+                  borderBottomLeftRadius: "0",
+                  transition: "border-radius",
+                }
+              : {
+                  borderRadius: "0.5rem",
+                  transition: "border-radius 1s ease-in-out",
+                }
+          }
         >
           <div className="relative left-4 top-1/2 transform -translate-y-1/2 w-[80px] flex items-center">
             <button
@@ -70,10 +83,28 @@ const NewAppartment = ({
 
       {/* APPARTMENT FORM */}
 
-      {isOpen && (
-        <div className="flex mx-4">
-          <div className="flex flex-col bg-white mx-auto rounded-b-lg max-w-[800px] w-full h-[850px] shadow-xl transform transition-transform duration-500">
-            <div className="mb-6 mx-auto my-4">
+      <div className="flex mx-4 relative">
+        <div
+          className={
+            isOpen
+              ? "flex absolute z-10 flex-col left-0 right-0 bg-white mx-auto rounded-b-lg max-w-[800px] w-full h-[850px] shadow-xl"
+              : "flex absolute z-10 flex-col left-0 right-0 bg-white mx-auto rounded-b-lg w-full max-w-[800px] h-none shadow-xl"
+          }
+          style={
+            isOpen
+              ? { height: "850px", transition: "height 0.4s ease-in-out" }
+              : { height: "0px", transition: "height 0.4s ease-in-out" }
+          }
+        >
+          <>
+            <div
+              className="mb-6 mx-auto my-4"
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
+            >
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
                 htmlFor="grid-last-name"
@@ -88,7 +119,14 @@ const NewAppartment = ({
                 onChange={(e) => handleChange("title", e.target.value)}
               />
             </div>
-            <div className="mb-6 mx-auto my-4">
+            <div
+              className="mb-6 mx-auto my-4"
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
+            >
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
                 htmlFor="grid-last-name"
@@ -103,7 +141,14 @@ const NewAppartment = ({
                 onChange={(e) => handleChange("address", e.target.value)}
               />
             </div>
-            <div className="mb-6 mx-auto my-4">
+            <div
+              className="mb-6 mx-auto my-4"
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
+            >
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
                 htmlFor="grid-last-name"
@@ -117,7 +162,14 @@ const NewAppartment = ({
                 onChange={(e) => handleChange("price", e.target.value)}
               />
             </div>
-            <div className="mb-6 mx-auto my-4">
+            <div
+              className="mb-6 mx-auto my-4"
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
+            >
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
                 htmlFor="grid-last-name"
@@ -132,7 +184,14 @@ const NewAppartment = ({
               />
               <h3>{320 - formState.description.length} caractères restants</h3>
             </div>
-            <div className="mb-6 mx-auto my-4">
+            <div
+              className="mb-6 mx-auto my-4"
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
+            >
               <label
                 className="block uppercase tracking-wide text-gray-700 text-md font-bold mb-2"
                 htmlFor="grid-last-name"
@@ -150,12 +209,17 @@ const NewAppartment = ({
             <button
               className="bg-green-500 hover:bg-green-600 text-white mx-auto font-bold m-2 py-2 px-4 rounded mt-4 w-40"
               onClick={() => addAppartment()}
+              style={
+                isOpen
+                  ? { opacity: "1", transition: "opacity 1s" }
+                  : { opacity: "0", transition: "opacity 0.2s" }
+              }
             >
               Valider
             </button>
-          </div>
+          </>
         </div>
-      )}
+      </div>
     </>
   );
 };
