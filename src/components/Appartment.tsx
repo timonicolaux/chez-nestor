@@ -55,10 +55,13 @@ const Appartment = ({
 
   return (
     <div
+      className={`${
+        isOpen ? "h-[1950px] md:h-[1410px]" : "h-[1100px] md:h-[450px]"
+      }`}
       style={
         isOpen
-          ? { height: "1410px", transition: "height 0.4s ease-in-out" }
-          : { height: "450px", transition: "height 0.4s ease-in-out" }
+          ? { transition: "height 0.4s ease-in-out" }
+          : { transition: "height 0.4s ease-in-out" }
       }
     >
       <Toaster position="top-center" />
