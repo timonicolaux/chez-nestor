@@ -54,6 +54,7 @@ const Appartment = ({
       );
       setAppartmentInfo(updatedData);
       setConfirmDelete(false);
+      toast.success("Appartement supprimé");
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +75,7 @@ const Appartment = ({
           : { transition: "height 0.4s ease-in-out" }
       }
     >
-      <Toaster position="top-center" toastOptions={{ className: "mt-36" }} />
+      <Toaster position="bottom-center" toastOptions={{ className: "mb-20" }} />
       <div className="flex mx-4">
         <div
           className={`flex w-full flex-col justify-center bg-white mx-auto h-[1000px] md:h-[400px] rounded-lg shadow-xl mt-10 md:flex-row md:w-[800px] ${
@@ -116,7 +117,7 @@ const Appartment = ({
                   className="bg-orange-500 hover:bg-orange-600 text-white font-bold mt-2 mx-2 py-2 px-4 rounded"
                   onClick={() => setIsOpen(!isOpen)}
                 >
-                  Modifier
+                  {isOpen ? "Annuler" : "Modifier"}
                 </button>
                 <button
                   className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"

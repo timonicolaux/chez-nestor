@@ -58,7 +58,7 @@ const NewAppartment = ({
           : { height: "100px", transition: "height 0.4s ease-in-out" }
       }
     >
-      <Toaster position="top-center" toastOptions={{ className: "mt-36" }} />
+      <Toaster position="bottom-center" toastOptions={{ className: "mb-20" }} />
       <div className="flex mx-4">
         <div
           className={`flex bg-white mx-auto h-16 max-w-[800px] w-full shadow-xl ${
