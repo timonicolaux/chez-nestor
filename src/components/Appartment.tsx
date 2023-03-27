@@ -17,6 +17,7 @@ const Appartment = ({
 }) => {
   // const { isOpen, setIsOpen } = useContext(AppContext) as AppContextTypes;
   const [isOpen, setIsOpen] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const [formState, setFormState] = useState<AppartmentInfo>({
     title: appartmentInfoIndex.title,
     address: appartmentInfoIndex.address,
@@ -26,27 +27,36 @@ const Appartment = ({
   });
 
   const updateAppartment = () => {
-    const updatedData = [...appartmentInfo];
-    if (formState.url.length === 0) {
-      const noImageFormState = {
-        ...formState,
-        url: "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg",
-      };
-      updatedData[appartmentIndex] = noImageFormState;
-      setAppartmentInfo(updatedData);
-    } else {
-      updatedData[appartmentIndex] = formState;
-      setAppartmentInfo(updatedData);
+    try {
+      const updatedData = [...appartmentInfo];
+      if (formState.url.length === 0) {
+        const noImageFormState = {
+          ...formState,
+          url: "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg",
+        };
+        updatedData[appartmentIndex] = noImageFormState;
+        setAppartmentInfo(updatedData);
+      } else {
+        updatedData[appartmentIndex] = formState;
+        setAppartmentInfo(updatedData);
+      }
+      setIsOpen(false);
+      toast.success("Appartement modifié");
+    } catch (error) {
+      console.log(error);
     }
-    setIsOpen(false);
-    toast.success("Appartement modifié");
   };
 
   const removeAppartment = () => {
-    const updatedData = appartmentInfo.filter(
-      (elt) => elt !== appartmentInfoIndex
-    );
-    setAppartmentInfo(updatedData);
+    try {
+      const updatedData = appartmentInfo.filter(
+        (elt) => elt !== appartmentInfoIndex
+      );
+      setAppartmentInfo(updatedData);
+      setConfirmDelete(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleChange = (key: string, value: any) => {
@@ -64,7 +74,7 @@ const Appartment = ({
           : { transition: "height 0.4s ease-in-out" }
       }
     >
-      <Toaster position="top-center" />
+      <Toaster position="top-center" toastOptions={{ className: "mt-36" }} />
       <div className="flex mx-4">
         <div
           className={`flex w-full flex-col justify-center bg-white mx-auto h-[1000px] md:h-[400px] rounded-lg shadow-xl mt-10 md:flex-row md:w-[800px] ${
@@ -100,20 +110,42 @@ const Appartment = ({
               <span className="text-lg font-normal">/mois</span>
             </h2>
             <p className="text-justify">“{appartmentInfoIndex.description}“</p>
-            <div className="absolute bottom-0 right-0">
-              <button
-                className="bg-orange-500 hover:bg-orange-600 text-white font-bold mt-2 mx-2 py-2 px-4 rounded"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                Modifier
-              </button>
-              <button
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-                onClick={() => removeAppartment()}
-              >
-                Supprimer
-              </button>
-            </div>
+            {!confirmDelete ? (
+              <div className="absolute bottom-0 right-0">
+                <button
+                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold mt-2 mx-2 py-2 px-4 rounded"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  Modifier
+                </button>
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => setConfirmDelete(true)}
+                >
+                  Supprimer
+                </button>
+              </div>
+            ) : (
+              <>
+                <h2 className="absolute w-40 md:w-auto md:bottom-2 bottom-0 left-0">
+                  Confirmez-vous cette action ?
+                </h2>
+                <div className="absolute bottom-0 right-0">
+                  <button
+                    className="bg-green-500 hover:bg-green-600 text-white font-bold mt-2 mx-2 py-2 px-4 rounded"
+                    onClick={() => removeAppartment()}
+                  >
+                    Oui
+                  </button>
+                  <button
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => setConfirmDelete(false)}
+                  >
+                    Non
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

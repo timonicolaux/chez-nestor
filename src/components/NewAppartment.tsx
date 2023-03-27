@@ -19,24 +19,31 @@ const NewAppartment = ({
   });
 
   const addAppartment = () => {
-    if (formState.url.length === 0) {
-      const noImageFormState = {
-        ...formState,
-        url: "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg",
-      };
-      setAppartmentInfo([...appartmentInfo, noImageFormState]);
-    } else {
-      setAppartmentInfo([...appartmentInfo, formState]);
+    try {
+      if (!formState.title.length) {
+        return toast.error("Veuillez renseigner au moins un titre");
+      }
+      if (formState.url.length === 0) {
+        const noImageFormState = {
+          ...formState,
+          url: "https://t4.ftcdn.net/jpg/02/07/87/79/360_F_207877921_BtG6ZKAVvtLyc5GWpBNEIlIxsffTtWkv.jpg",
+        };
+        setAppartmentInfo([...appartmentInfo, noImageFormState]);
+      } else {
+        setAppartmentInfo([...appartmentInfo, formState]);
+      }
+      setIsOpen(false);
+      toast.success("Appartement ajouté");
+      setFormState({
+        title: "",
+        address: "",
+        price: null,
+        description: "",
+        url: "",
+      });
+    } catch (error) {
+      console.log(error);
     }
-    setIsOpen(false);
-    toast.success("Appartement ajouté");
-    setFormState({
-      title: "",
-      address: "",
-      price: null,
-      description: "",
-      url: "",
-    });
   };
 
   const handleChange = (key: string, value: any) => {
@@ -51,7 +58,7 @@ const NewAppartment = ({
           : { height: "100px", transition: "height 0.4s ease-in-out" }
       }
     >
-      <Toaster position="top-center" />
+      <Toaster position="top-center" toastOptions={{ className: "mt-36" }} />
       <div className="flex mx-4">
         <div
           className={`flex bg-white mx-auto h-16 max-w-[800px] w-full shadow-xl ${
@@ -116,6 +123,7 @@ const NewAppartment = ({
                 maxLength={100}
                 value={formState.title}
                 onChange={(e) => handleChange("title", e.target.value)}
+                required
               />
             </div>
             <div className="mb-6 mx-auto my-4">
