@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useContext, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { AppartmentInfo, AppContextTypes } from "../types/types";
 import toast, { Toaster } from "react-hot-toast";
@@ -63,6 +69,11 @@ const Appartment = ({
   const handleChange = (key: string, value: any) => {
     setFormState({ ...formState, [key]: value });
   };
+
+  useEffect(() => {
+    if (isOpen) setIsOpen(false);
+    else return;
+  }, [confirmDelete]);
 
   return (
     <div
@@ -215,6 +226,7 @@ const Appartment = ({
               <input
                 className="max-w-[700px] min-w-[300px] md:min-w-[700px] shadow-xs bg-slate-200 text-gray-700 border border-gray-200 rounded py-3 px-4 focus:outline-none focus:bg-white focus:border-gray-500"
                 type="number"
+                min={0}
                 value={formState.price || undefined}
                 onChange={(e) => handleChange("price", e.target.value)}
               />
