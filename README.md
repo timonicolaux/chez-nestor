@@ -1,3 +1,4 @@
+
 ## Description
 
 Cette Application permet de visualiser une liste d'appartements, qui comprennent chacun :
@@ -31,5 +32,4 @@ Voici les instructions pour lancer l'application en local :
 - git pull origin
 - npm i
 - npm start
-
 
