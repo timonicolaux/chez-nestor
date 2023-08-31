@@ -75,6 +75,18 @@ const Appartment = ({
     else return;
   }, [confirmDelete]);
 
+  // WHEN WE DELETE AN APPARTMENT WE MUST ALSO UPDATE FORMSTATE IN ORDER TO HAVE THE RIGHT DATA IN MODIFICATION PAGE //
+
+  useEffect(() => {
+    setFormState({
+      title: appartmentInfoIndex.title,
+      address: appartmentInfoIndex.address,
+      price: appartmentInfoIndex.price,
+      description: appartmentInfoIndex.description,
+      url: appartmentInfoIndex.url,
+    });
+  }, [appartmentInfo]);
+
   return (
     <div
       className={`${
